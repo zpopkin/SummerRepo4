@@ -1,0 +1,92 @@
+---
+title: "nhhwk6"
+author: "James Dickens"
+date: "10/25/2020"
+output: word_document
+---
+
+```{r}
+#Instructions:   
+# 1)  Execute the following installations (separately and one at a time):
+#Enter the r code untidydata and then select language diversity.
+#You should produce the following r data call of  
+
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+
+untidydata::language_diversity
+
+#2)  The data set is too long (444 rows) and should be wider in order to become 
+#more useful and understandable.  Use and show R code to produce a table that is
+#wider data table version of the original data table.
+#A partial printing of the wider data table is given below:
+untidydata::language_diversity%>%
+  pivot_wider(names_from = Measurement, values_from = Value)-> Langdiv
+Langdiv
+
+#3)  Now use and show R code that will arrange the Continents in alphabetical
+#order.  Print the first 40 rows.  A partial table showing rows 35 – 40 are given below.
+Langdiv%>%
+  arrange(Continent)%>%
+  print(n=40)
+
+#4)  Now use and show R code that will only produce Asian countries in the data 
+#table.  There are 16 Asian countries.
+Langdiv%>%
+  filter(Continent == "Asia")
+
+#5)  Enter the r code untidydata and then select pre_post
+#You should produce the following r data call of   untidydata::pre_post
+#Produce the pre_post table that shows all 16 rows.
+untidydata
+untidydata::pre_post
+
+untidydata::pre_post%>%
+  print(n=16)
+
+#6) For the pre_post data table, Use and show R code that will eliminate the under
+#scores for the variable spec.  A partial table is given below:
+untidydata::pre_post -> K
+K
+
+K%>%
+  mutate(spec = recode(spec, "g1_lo" = "g1lo", "g2_lo" = "g2lo", "g2_hi" = "g2hi", "g1_hi" = "g1hi"))
+#7)  Load the given link below and then create an excel file for the covid- 19 
+#data that is given.https://raw.githubusercontent.com/CSSEGISandData/COVID19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global. 
+#Use and show R code that imports the excel spread sheet into R.  Assign your 
+#imported data the variable covid.
+read_csv("time_series_covid19_confirmed_global.csv")->covid
+covid
+
+#8)  The covid data table is too wide.  Apply and show R tyding code that will
+#create a longer data table and then print 25 rows of the new data table.  
+#A partial table is given below.
+covid%>%
+  select(`Province/State`, `Country/Region`, Lat , Long, everything())%>%
+  pivot_longer(col = `1/22/2020` :`10/15/2020` , names_to = "Dates", 
+               values_to =  "Cases")%>%
+  print(n=16)-> covid1
+covid1
+
+#9)  Now use and show R code that changes your table from number 8 and will produce 
+#a table that only shows data for the countries Vietnam, Thailand, and Singapore. 
+#When printed, the first ten rows automatically shows data for Singapore.
+covid1%>%
+  filter(`Country/Region`== c("Vietnam","Thailand","Singapore"))-> covid2
+covid2
+
+#10) Now show and use R code to produce the bar graph given below that shows 
+#approximate counts for the countries Vietnam, Thailand and Singapore
+ggplot(data = covid2, aes(x= `Country/Region`, y = Cases, fill=`Country/Region`))+
+  geom_bar(width = .5, stat = "identity")
+
+#11) Now show and use R code that will give accurate counts for Covid-19 cases 
+#for all there countries.  (The number of cases for the country of Singapore is
+#(2,653,210)
+ggplot(data = covid2, aes(x= `Country/Region`, y = Cases, fill=`Country/Region`))+
+  geom_bar(width = .5, stat = "identity")+
+  geom_text(aes(label = Cases), vjust = 0)
+
+
+```
