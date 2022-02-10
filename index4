@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+    <Session activeView="1">
+        <mainView activeIndex="0" />
+        <subView activeIndex="0">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="480" startPos="267" endPos="267" selMode="0" offset="0" wrapCount="1" lang="HTML" encoding="-1" userReadOnly="no" filename="C:\Users\12407\Desktop\index4.html" backupFilePath="" originalFileLastModifTimestamp="-411640483" originalFileLastModifTimestampHigh="30935989" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="0" mapWrapIndentMode="-1" mapIsWrap="no" />
+        </subView>
+    </Session>
+</NotepadPlus>
