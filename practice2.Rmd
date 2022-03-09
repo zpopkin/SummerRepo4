@@ -1,0 +1,14 @@
+---
+title: "practice2"
+author: "James Dickens"
+date: "1/25/2021"
+output: word_document
+---
+
+```{r}
+
+# your name
+# where you live
+# your time zone
+
+```
