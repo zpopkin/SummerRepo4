@@ -1,0 +1,66 @@
+---
+title: "DS413613 Homework 5 Key"
+author: "James Dickens"
+date: "2/25/2021"
+output: word_document
+---
+
+```{r}
+
+
+# DS 413/613 Homework 5 key
+
+Stockreturns <- c(-8.36,   1.63,  -2.27, -2.93,  -2.70, 
+                 -2.93, -9.14, -2.64, 6.82,   -2.35, 
+                 -3.58,   6.13,   7.00, -15.25, -8.66,
+                 -1.03, -9.16,  -1.25, -1.22,  -10.27,
+                 -5.11, -0.80,  -1.44,  1.28,  -0.65,
+                 4.34,   12.22, -7.21, -0.09, 7.34, 
+                 5.04,  -7.24,  -2.14, -1.01,  -1.41, 
+                 12.03, -2.53,  4.33,  1.35)
+Stockreturns
+
+# 1
+mean(Stockreturns)
+# 2
+sd(Stockreturns)
+
+# 3) Assuming a normal distribution, use and show R code to find the 
+# proportion of returns that are less than  -1.5.
+pnorm(q = -1.5, mean = -1.124615, sd = 5.977673)     
+
+#4) Assuming a normal distribution, use and show R code to find the return  
+# value that is above 70% of the returns
+qnorm(p = 0.70, mean = -1.124615, sd = 5.977673 )
+
+# 5) Use and show R code to find Q1 for the data.
+qnorm(p = 0.25, mean = -1.124615, sd = 5.977673 )
+
+# 6) Explore the data by producing and examining a boxplot and checking for
+# normality.
+
+boxplot(Stockreturns)
+
+qqnorm(Stockreturns)
+qqline(Stockreturns)
+
+# 7) State the appropriate null and alternative hypothesis required for the 
+# appropriate t test.
+ #H(o) :  popmean = .95
+ #H(a) :  popmean < .95
+ 
+# 8) Use and show R code that will output the needed p value and confidence
+# interval to determine if the null hypothesis should be rejected.
+ 
+ t.test(Stockreturns,mu=.95, alternative = "less", conf.level = .95)
+
+
+# 9)
+
+# The null hypothesis should be rejected.  The broker performed worse.
+
+
+
+
+
+```

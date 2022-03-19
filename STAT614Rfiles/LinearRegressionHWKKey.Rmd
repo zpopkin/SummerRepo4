@@ -1,0 +1,117 @@
+---
+title: "LinearRegressionHWKKEY"
+author: "James Dickens"
+date: "10/31/2020"
+output: word_document
+---
+
+```{r}
+
+
+# STAT 614 Homework Linear Regression  KEY
+library(tidyverse)
+
+# NUMBER 1
+
+	tribble(~"RateofReturnofSandPFH",      	~"RateofReturnofGE",
+    	    	           .203,                      .402,
+    		               .310,                      .510,
+    	                 .267,	                    .410,
+    	                 .195,	                    .536,
+    	                -.101,                     -.060,
+    	                -.130,	                   -.151,
+    	                -.234,	                   -.377,
+    	                 .264,	                    .308,
+    	                 .090,	                    .207,
+    	                 .030,	                   -.014,
+	                     .128,	                    .093,
+    	                -.035,	                    .027,
+    	                -.385,	                   -.593,
+    	                 .235,	                   -.102,
+    	                 .067,	                    .053
+	        ) -> b
+	b
+	
+	#1a
+
+	ggplot(data = b) +
+	  geom_point(mapping = aes(y = RateofReturnofGE, x = RateofReturnofSandPFH ))
+	
+	#1b The scatterplot suggests a strong positive linear relationship
+	
+	#1c
+	cor(b$RateofReturnofSandPFH, b$RateofReturnofGE)
+
+	#1d  The correlation coeficient indicates the strength and the direction of the pattern shown
+	#    by the scatterplot.
+	
+	#1e
+	lm(RateofReturnofGE~RateofReturnofSandPFH, data = b)->BB
+	BB
+	
+	
+	# 1f  y(hat) =  .01383 + .55765x
+	
+	
+	# 1g  For every 1 unit of increase RATE of RETURN of S&P 500, the RATE of RETURN of GE increases
+	#     by .55765
+	
+	# 1h  
+	
+	ggplot(data = b) +
+	  geom_point(mapping = aes(y = RateofReturnofGE, x = RateofReturnofSandPFH )) +
+	  geom_smooth(method=lm,mapping = aes(y = RateofReturnofGE, x = RateofReturnofSandPFH ), se=FALSE)
+	
+	# 1i  y(hat) =  .01383 + .55765(1.78)  =  1.0064
+	
+	# 1j  Residual = (Observed - Expected)   
+	#     Observed value for .267 = .410
+	#     Expected value for .267 is  .01383 + .55765(.267) = .16272
+	#     Residual =  (.410 - .16272) = .24728
+	#     The observed value of .410 is above average since the residual .24728
+	#     is a positive number
+	
+	#1k
+	
+	
+	summary(BB)
+	
+	# .7818
+	
+	# NUMBER 2
+	
+	#2a  Highest cell phone use    (20 , 87)
+	#    Highest (GDP)             (37 , 42)
+	# Note; the coordinates are approximations
+	
+	#2b
+	#   x = 34.3 , y = 45.1
+  # The predicted cell phone use:  y(hat) =  -.13 + 2.62(34.3) = 89.736
+	# The residual =  (Observed - Expected) = 45.1 - 89.736 = -44.636
+	# Since the residual is a negative number, the observed value of 45.1 is below average.
+	
+	#2c  Since the slope is a positive number, the correlation is going to be positive.
+	
+	# NUMBER 3
+	
+	#3a  Two possible response:   Does a linear relationship exist between fertility rate and
+	#    gender inequality?   Is fertility rate a function of gender inequality ?
+	
+	#3b  Fertility Rate = 1.378 + 2.734GII  (The equation's slope indicates that for every
+	#    index unit of increase for gender inequality, the fertility rate increases by 2.734 on
+	#    average)
+	
+
+	#3c  r = .598  ,  r(squared) = .357
+	#  The low r value indicates that the scatter plot does not show a strong linear relationship
+	#  between the varibles
+	#  The r(squared) value of .357 indicates that only 35.7% of the variation in the dependent 
+	#  variable is explained by the linear model.
+	
+	#3d  Based on the quantitave results of #3c, we cannot say with confidence that fertility rate
+	#    and gender inequality have a strong linear relationship.
+	         
+
+
+
+```

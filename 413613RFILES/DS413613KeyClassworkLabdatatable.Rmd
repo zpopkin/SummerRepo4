@@ -1,0 +1,69 @@
+---
+title: "Classwork/Lab data.table"
+author: "James Dickens"
+date: "3/24/2021"
+output: word_document
+---
+
+```{r}
+
+
+# classwork/Lab  data.table
+library(tidyverse)
+library(dplyr)
+library(data.table)
+flights1 <- fread("nyc14.csv")
+flights1
+
+flights2 <- read_csv("nyc14.csv") 
+flights2
+# 1) Use and show data.table code to select the variables year, month, day, and hour from 
+# the imported flights data
+flights1[, .(year, month, day, hour)]
+
+# 2) Use and show data. table code to produce a table that shows a carrier of DL, an origin
+# of JFK and a destination of SEA
+flights1[origin == "JFK" & dest == "SEA" & carrier =="DL"]
+
+# 3) Use and show dat.table code to produce a table that shows a carrier of UA, a month of
+# March, and an airtime that is below 330.
+flights1[carrier == "UA" & month == 3 & air_time < 330]
+
+# 4) Use and show tidyverse code to produce a table that shows a carrier of UA, a month of
+# March, and an airtime that is below 330.  
+
+flights2%>%
+  filter(carrier == "UA", month == 3, air_time < 330)
+
+# 5) Use the data.table method to add a variable called speed that is the average air speed of the plane 
+# in miles per hour. Then remove this variable.
+
+flights1[, c("gain") := .(distance / hour)]
+flights1
+
+
+# 6) Use the tidyverse method to add a variable called speed that is the average air speed of the plane 
+# in miles per hour. Then remove this variable.
+flights2%>%
+  mutate(averagespeed = (distance/hour))
+
+# 7)
+
+# Show and use coding to change the carrier abbreviation of UA to UniitedAir,
+
+# 7a data.table method
+flights1[carrier == "UA", carrier := "UnitedAir"]
+flights1
+
+
+# 7b tidyverse method  (Use a sequence of dplyr commands so that you can see
+# the change in your table)
+flights2%>%
+  arrange(desc(carrier))%>%
+  mutate(carrier = recode(carrier, "UA" = "UnitedAir"))%>%
+  filter(carrier == "UnitedAir")-> fl2
+fl2
+
+
+
+```

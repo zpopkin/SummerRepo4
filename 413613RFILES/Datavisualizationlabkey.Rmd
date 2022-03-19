@@ -1,0 +1,95 @@
+---
+title: "DataVisualization Lab Key"
+author: "James Dickens"
+date: "7/5/2021"
+output: word_document
+---
+
+```{r}
+
+
+
+
+
+# DATA VISUALIZATION LAB KEY
+
+library(tidyverse)
+
+#1)
+
+tribble(~Planet, ~Mass, ~Diameter, ~Density, ~Gravity, ~DayLength, ~MeanTemp, 
+        ~DistfSun,
+        "Mercury",.330, 4879, 5427, 3.7, 4222.6, 167, 57.9,
+        "Venus",  4.87, 12104, 5243, 8.9, 2802, 464, 108.2,
+        "Earth",  5.97, 12756, 5514, 9.8, 24, 15, 149.6, 
+        "Mars",   .642, 6792, 3933, 3.7,  24.7,-65, 227.9,
+        "Jupiter", 1898, 142984, 1326, 23.1, 9.9, -110, 778.6,
+        "Saturn",   568, 120536, 687, 9.0, 10.7, -140, 1433.5,
+        "Uranus",   86.8, 51118, 1271, 8.7, 17.2, -195, 2872.5,
+        "Neptune",  102, 49528, 1638, 11.0, 16.1, -200, 4495.1,
+        "Pluto",   .0146, 2370, 2095, .7, 153.3, -225, 5906.4) -> Planets
+Planets
+
+# 2
+ #a)
+ mean(Planets$Mass)
+ #b)
+ max(Planets$Mass)
+ #c)
+ sd(Planets$Mass)
+ 
+ # 3
+summary(Planets$Mass)
+
+
+
+# 4
+ggplot(data = Planets) +
+  geom_boxplot(mapping = aes(y = MeanTemp))
+
+# 5
+ggplot(data = Planets) +
+  geom_freqpoly(mapping = aes(x = Mass))
+
+# 6
+ggplot(data = Planets) +
+  geom_bar(mapping = aes(x = Planet, y = Gravity, fill = Planet), 
+           stat = "identity")
+# 7
+ggplot(data = Planets) +
+  geom_point(mapping = aes(x = DistfSun, y = MeanTemp))
+
+# 8
+#install.packages("plotrix")
+
+library(plotrix)
+Mass <- c( 1898, 568, 86.8, 102, .0146)
+Mass
+Planets1 <- c("Jupiter", "Saturn",
+              "Uranus", "Neptune", "Pluto")
+Planets1
+
+pie3D(Mass,labels = Planets1, explode = .2, main = "3D Pie Chart")
+
+
+# 9
+
+# a)
+diamonds
+# b)
+nrow(diamonds)
+# c)
+ncol(diamonds)
+
+# d)
+ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = carat), fill = "red")
+
+# e)
+ggplot(data = diamonds) +
+  geom_boxplot(mapping = aes(x = cut, y = price, fill = cut))
+
+
+
+
+```

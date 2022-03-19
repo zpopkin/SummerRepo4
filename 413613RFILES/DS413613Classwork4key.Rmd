@@ -1,0 +1,83 @@
+---
+title: "DS413613 Classwork4 Key"
+author: "James Dickens"
+date: "2/17/2021"
+output: word_document
+---
+
+```{r}
+
+
+# DS 413613 CLASSWORK4 KEY
+
+library(tidyverse)
+
+x <- list(26, 32, 45, 50, 65, 77, 82)
+y <- list(30, 43, 50, 58, 62, 71, 88)
+
+#1) For the lists given above, show and use R code (a map function) to iterativley 
+#find:
+  #a) sums across the two vectors. (Use two methods)
+
+map2_dbl(x,y, sum)
+map2_dbl(x,y, `+`)
+
+  #b) the calculation of the square of the x value minus the square root of the y
+     #value.
+     
+map2_dbl(x,y,  ~.x^2 - .y^.5)
+  
+  #c) the ratio of the common log of the x value to the natural log of the y value.
+
+map2_dbl(x,y, ~log10(.x)/log(.y))
+
+
+
+x <- list(2, 4, 5, 9, 1)
+y <- list(8, 7, 2, 8, 3)
+z <- list(1, 8, 5, 4, 2)
+
+#2) For the lists given above, show and use R code (a map function) to iterativley 
+#find the squareof the sums accross the vectors
+
+pmap_dbl(list(x,y,z), function(first, second, third) (first + second + third)^2)
+
+
+
+tribble( ~Student,  ~Gender, ~Salary,
+         "John",   "Male",    65000,
+         "Alice",  "Female",  73000,
+         "Juan",   "Male",    66000,
+         "Beth",   "Female",  71500,
+         "Denise", "Female",  82000
+) -> table
+table
+
+#3) Using the data table above, use and show R code that will output a statement that
+#is descriptive for all rows of the data table.
+
+#The first row is given below.  Your code should produce the other specific rows.
+
+  #John who is Male, has a salary that is 65000 dollars per year.
+
+table %>% 
+pmap_chr(~ str_glue("{..1} who is {..2}, has a salary that is {..3} dollars per year"))
+
+#4) Write a nested loop that will produce a 5 by 5 matrix that whose matrix elements
+#are sums of the corresponding columns and rows.
+
+
+z <- matrix( nrow = 5, ncol = 5)
+for (m in 1:5) {
+  for (n in 1:5) {
+    z[m, n] <- (m + n)
+  }
+}
+print(z)
+
+
+
+
+
+```
+

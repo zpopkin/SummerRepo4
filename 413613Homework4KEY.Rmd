@@ -1,0 +1,134 @@
+---
+title: "DS413613Homework4KEY"
+author: "James Dickens"
+date: "2/12/2022"
+output: word_document
+---
+
+```{r}
+
+
+# Homework 4  KEY
+
+library(tidyverse)
+library(dplyr)
+
+1
+
+# a) Use the R function nrow to confirm that the iris data frame has 150
+# rows. Then use and show R code that  features a map function to confirm
+# that the iris data frame has 150 rows.    6 points
+
+iris
+
+nrow(iris)
+
+# map method 1
+map_dbl(iris, length)
+
+# map method 2
+iris%>%
+  map_dbl(length)
+
+
+
+# b) Each column of the iris data frame has a unique number of values or objects. 
+# For example, the column Sepal.Length has 150 values but 35 of them are unique. 
+# Use and show R code that features a map function to find the number of unique values 
+# or objects for each column of the iris data frame.     6 points
+
+iris%>%
+  map(unique)%>%
+  map(length)
+
+# 2
+# Use and show R code that features a nested loop that will produce
+# the  5 by 3 matrix shown below.      6 points
+
+z <- matrix(nrow = 3, ncol = 5)
+     for (m in 1:3) {
+       for (n in 1:5) {
+         z[m,n] <- -1*(m - n)
+       }
+     }
+print(z)
+
+
+# 3                6 points
+                                                                                    
+x<- rnorm(10,-10)
+x
+y<- rnorm(10,0)
+y
+z<- rnorm(10,10)
+z
+k<- rnorm(10,100)
+k
+
+tibble(x,y,z,k)
+
+# 4
+# a) In statistics, a z score indicates the standard deviation distance
+# between the mean and a specific value of the data set. What formula 
+# is used to find a z score? Use and show R coding that features a 
+# map function to iteratively find z scores across the lists given 
+# above.      4 points
+
+X <- list(12, 14, 15, 18, 19, 22,10,18,18)
+X
+Mean <- list(16, 16, 16, 16, 16,16,16,16,16)
+Mean
+sd <- list(2, 2, 2, 2, 2,2,2,2,2)
+sd
+
+pmap_dbl(list(X,Mean,sd), function(first, second, third) ((first - second) / third))
+
+# b) The test statistic for a population mean is given by the formula 
+# ((X -  mean)/s/sqrt(n)) Use and show R coding that features a map 
+# function to iteratively find test statistics for population means across
+# the lists given above.        6 points
+
+pmap_dbl(list(X,Mean,sd), function(first, second, third) (first - second) / (third / sqrt(9)))
+                                                                                     
+
+
+# 5
+V = c(10,15,17,22,32,38,42)
+# a) Another purr package function is the keep( ) function. Research, explore,
+# and use the keep( ) function to extract all number from the vector V given 
+# above that are less than 20   4 points
+
+V %>%
+  keep(V<20)
+
+# b) Another purr package function is the discard( ) function. Research, explore,
+# and use the discard( ) function to eliminate all numbers from the vector V 
+# given above that are less than 20    4 points
+
+V %>%
+  discard(V<20)
+
+# 6
+# Another purr package function is the safely( ) function. Research, explore, 
+# and apply the safely( ) function to the given vector below as illustrated.
+#   4 points
+
+U = list(10, 15, "mary", 22, 32, "james", 42)
+U
+
+map(U, safely(~ .x + 15))
+
+# In four of five sentences explain the specific output for this 
+# and how the definition and the application of the safely() function is 
+# used.
+
+# If The safely function is applied to a vector(List), if confirms that an
+# an operation can be executed on variable types that belong to the same 
+# family of variables or not.  If variables belong to the same family the 
+# function outputs the answer(result) and NULL. NULL indicating that no error
+# ocurred. If variables do not belong to the same family, the safely function
+# outputs NULL for a result (indicating that there is no result) and a description
+# of the error.
+
+
+```

@@ -1,0 +1,75 @@
+<!DOCUTYPE html>
+    <html>
+	    <head>
+		<center> <h1> Go Michigan State !</h1>
+		  <h2> Beat Michigan !</h4> </center>
+		  <style>
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+	  color: Green;
+	  }
+	  h2{
+	  color: Blue;
+	  }
+	  
+	  body{
+	  background-color: yellow;
+	  }
+</style>
+		</head>
+		  <body>
+			  <img src="C:\Users\12407\Desktop\sparty.png"></img>
+		    <p>
+		    We have to go home before it starts raining. No one wants to get wet
+			<br> <br>
+			"We thus define the tidy text format as being a table",
+  "with one-token-per-row. A token is a meaningful unit of text, such as a word",
+  "that we are interested in using for analysis, and tokenization is", 
+  "the process of splitting text into tokens. This one-token-per-row",
+  "structure is in contrast to the ways text is often stored in", 
+  "current analyses, perhaps as strings or in a document-term matrix.",
+  "For tidy text mining, the token that is stored in each row is",
+  "most often a single word, but can also be an n-gram, sentence, or",
+  "paragraph. In the tidytext package, we provide functionality to", 
+  "tokenize by commonly used units of text like these and convert", 
+  "to a one-term-per-row format."
+  
+  <br><br>
+  To whom it may concern,
+I had the pleasure of teaching Alexander Zakrzeski the Spring Semester of 2021 and
+the summer session of 2021 at American University.  He was my student for the courses
+DS 612 R Programing for Data Science and DS 613  R Programing for Data Science in 
+sequence.  Although these were very intense programing courses,  Alexander excelled 
+in both courses and earned a grade of A in each course.  The topics covered in these 
+courses were broad and deep, specifically featuring coverage of Data Visualization, 
+Data Transformations, Data Wrangling, Methods for Tidying Data, Webscraping, Shiny 
+app development and many other R programing/Data Science topics.   I was especially 
+impressed with his ability to learn and grasp difficult procedures quickly and extend
+his learning experience so that he could take advantage of R coding explorations and 
+applications.  Alexander did not just go through the motions, he exhibited a passion 
+for R coding and was always eager to supplement and expand his knowledge base of the 
+R language as well as Data Science in general.  Often he would show an interest in 
+advanced R programing tasks that required more in depth study and analysis.  I also 
+appreciated and respected his willingness to help fellow students with the course work
+and always amenable to working collaboratively with classmates. He always submitted 
+work professionally and on-time.  Alexander was consistent in both classes with regards
+to productivity, punctuality and politeness.
+<br>
+I highly recommend Alexander for challenging and rewarding opportunities in higher 
+education and employment.
+<br> <br>
+<a href="https://www.msn.com">msnlink</a>
+<br> <br>
+
+James C Dickens
+   
+
+			</p>
+		  </body>
+	</html>

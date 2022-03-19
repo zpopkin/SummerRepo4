@@ -1,0 +1,34 @@
+<!DOCUTYPE html>
+	<html>
+	  <head>
+	    <h1>Web Development Practice</h1>
+	  </head>
+	  <br>
+	  <br>
+	    <body>
+		 <b>This is another html example</b>
+		  <h1> This is a good example</h1>
+		  <h4> This is a good example</h4>
+		  <p>
+		  the best way to bake a cake is to first read a cook book,
+		  <br>
+		  so that you will know what ingredients to add to the cake
+		  <br>
+		  mix.  It is also important to know what temperature and for
+		  <br>
+		  how long the cake has to bake
+		  </p>
+		  <hr>
+		  <a href="https://www.espn.com">espnlink</a>
+		  <br>
+		  <br>
+		  <img src="C:\Users\12407\Documents\bearpicture.jpg"></img>
+		  <img src="C:\Users\12407\Pictures\picture of tiger.jpg"></img>
+		  <br><br>
+		  <ul>
+		  <li>Cowboys</li>
+		  <li>Eagles</lI>
+		  <li>WFT</li>
+		  <li>Giants</li>
+		</body>
+	</html>

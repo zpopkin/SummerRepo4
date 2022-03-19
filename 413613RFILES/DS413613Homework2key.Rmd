@@ -1,0 +1,66 @@
+---
+title: "DS413613Homework2key"
+author: "James Dickens"
+date: "2/18/2021"
+output: word_document
+---
+
+```{r}
+
+
+# DS 413/613 HOMEWORK 2 KEY
+library(tidyverse)
+library(nycflights13)
+
+USArrests
+
+#1
+# Frequencies for types of arrests per state.
+
+#2
+map_dbl(USArrests,  max)
+# Higest Number of assuales:  North Carolina
+
+#3
+flights
+
+#4
+# A tibble is showing of the first ten rows of a data frame.
+is.tibble(flights)
+
+#5
+map(flights,  typeof)
+# or
+map(flights, class)
+
+#6
+
+iris1 <- iris %>%
+  split(.$Species) %>%
+  map(~lm(Sepal.Length~ Sepal.Width, data = .))
+iris1
+
+#7
+
+V <- list(12,22,27,31.5,NA,39, "east")
+V
+
+# 7a
+length(V)
+
+#7b
+str(V[[5]])
+
+#7c
+str(V[[3]])
+
+#7d
+str(V[c(5,7)])
+
+#7e
+str(V[[7]])
+
+
+
+```
+

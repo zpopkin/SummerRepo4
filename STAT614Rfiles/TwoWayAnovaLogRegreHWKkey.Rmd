@@ -1,0 +1,95 @@
+---
+title: "TWO WAY ANOVA LOGISTICAL REGRESSION HOMEWORK KEY"
+author: "James Dickens"
+date: "12/3/2020"
+output: word_document
+---
+
+```{r}
+
+
+library(tidyverse)
+
+#1
+# Location and Service Center
+
+#2
+tribble(~ServiceCenter,          ~Location,                         ~OilChangeCharge,
+"SecialtyChain",                     "Chicago",                         19.95,  
+"SecialtyChain",                    "Chicago",                          27.95,
+"SecialtyChain",                     "Chicago",                         23.99,
+"SecialtyChain",                     "Bolingbrook",                      23.99,       
+"SecialtyChain",                     "Bolingbrook",                     29.95,       
+"SecialtyChain",                     "Bolingbrook",                     28.99,       
+"SecialtyChain",                     "Peoria",                          24.99,
+"SecialtyChain",                     "Peoria",                          26.99,       
+"SecialtyChain",                     "Peoria",                          19.95,
+"GeneralService",                    "Chicago",                         21.99,
+"GeneralService",                    "Chicago",                         26.95,
+"GeneralService",                    "Chicago",                         24.95,
+"GeneralService",                    "Bolingbrook",                     22.45,
+"GeneralService",                    "Bolingbrook",                     29.95,
+"GeneralService",                    "Bolingbrook",                     28.13,
+"GeneralService",                    "Peoria",                          22.99,
+"GeneralService",                    "Peoria",                          24.95,
+"GeneralService",                    "Peoria",                          27.99,
+
+) -> oilchange
+oilchange
+
+#3
+as.factor(oilchange$ServiceCenter) -> oilchange$ServiceCenter
+
+as.factor(oilchange$Location) -> oilchange$Location
+
+str(oilchange)
+
+#4
+
+aov( OilChangeCharge~ ServiceCenter + Location + ServiceCenter:Location, 
+    data = oilchange)-> aovoilchange
+aovoilchange
+summary(aovoilchange)
+
+#5
+# No.  no interaction (note that the p value for the interaction term (.854) is well above .05)
+
+#6
+
+interaction.plot(oilchange$ServiceCenter, oilchange$Location, oilchange$OilChangeCharge, 
+xlab = "ServiceCenter", ylab = "OilChangeCharge")
+
+# Interpretation: Note that for both levels of the factor Service Center, the posiioning of the
+# lines does not change for the levels of the other factor. Top, middle, and bottom does not
+# change. The lines do not cross, hence suggesing no interaction.
+
+# 7
+# The null hypothesis should not be rejected for either individual factor on the basis of the p
+# values.
+                
+#8
+
+mtcars
+
+glm(vs ~ wt + disp, family = "binomial",  data = mtcars) -> lr
+lr
+
+summary(lr)
+
+
+# ln(P/1-P) = 1.60859 + 1.62635wt  - 0.03443disp
+
+# ln(P/1-P) = 1.60859 + 1.62635(3.3)  - 0.03443(200)
+# ln(P/1 - P) = .089545
+# e^(ln(P/1 - P)) = e^(.089545)
+
+# (P/1-P) = 1.0936765
+
+#  P = 1.0936765 - 1.0936765P
+#  2.0936765P = 1.0936765
+#  P =  .52237  .52
+
+
+
+
+```

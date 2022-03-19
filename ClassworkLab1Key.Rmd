@@ -1,0 +1,63 @@
+---
+title: "ClassworkLab1KEY"
+author: "James Dickens"
+date: "8/23/2021"
+output: word_document
+---
+
+```{r}
+
+
+
+# STAT 412/612 CLASSWORK 1 
+# Instructions: Generate an R markdown file and a Word File
+# that shows all required R code and output.
+
+# 1) Use and show R code to find the square root of 63,504.
+
+sqrt(63504)
+(63504)**.5
+# 2) Use and show R code to log10(45000) 
+
+log10(45000)
+# 3) Use and show R code to evaluate ln(23.05) 
+
+log(23.05)
+
+# 4) Use and show R code to write all integers from 15 to 1 
+# in decreasing order. 
+
+15:1
+# 5) Use and show R code to find the mean of all
+# prime numbers 3 to 17 inclusive. 
+
+mean(c(3,5,7,11,13,17))
+
+#6) Use and show R code to round 17.3838 to the nearest
+# hundredth 
+
+round(17.3838, digits = 2)
+
+# 7) Use and show R code to evaluate the expression 
+# 7(53 – 2)2 .
+
+7*(53-2)*2
+
+# 8) Use R code to write a function that will calculate the 
+# volume of a cylinder. The following formula will be helpful,
+# V = πr 2h.  Then use your function to calculate the volume
+# of a cylinder that has a radius of 25 and a height of 10.
+
+volcyl <- function(r,h){
+  VC = pi*r*2*h
+  return(pi*r*2*h)
+}
+
+volcyl(25,10)
+
+
+
+
+
+
+```

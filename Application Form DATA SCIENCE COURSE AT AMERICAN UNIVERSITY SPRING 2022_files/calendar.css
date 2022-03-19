@@ -1,0 +1,47 @@
+﻿
+.form-theme-calendar.calendar-button {
+		display: inline-block;
+		padding: 4px 2px 3px 2px;
+		margin-right: 3px;
+	}
+	
+	.form-theme-calendar.calendar-button img {
+		display: inline;
+		margin-right: 4px;
+		vertical-align: text-bottom;
+	}
+
+	.form-theme-calendar.calendar-button i {
+		margin-left: 3px;
+		margin-right: 3px;
+		font-size: 110%;
+	}
+	
+
+#fdCalWindow, .window-theme-calendar .window-content { background-color: White; height: 100%; }
+#fdCalWindow *, .window-theme-calendar .window-content * { font-family: arial, verdana; font-size: 8pt; color: #363636 }
+
+.cal_title { width: 100%; background-color: #999999; padding-left: 3px; }
+#fdCalTitle { padding-left: 3px; }
+.cal_title td, .cal_title label { color: white !important; font-size: 10pt !important; }
+.cal_time { width: 100%; background-color: #999999; padding-left: 3px; margin-top: 3px; }
+.cal_time td, .cal_time label { color: white !important; font-size: 8pt !important; }
+.cal_days { margin: 2px 0 0px 0; border-collapse: collapse; }
+.cal_days td { width: 34px; height: 20px; text-align: center; vertical-align: middle; border-right: 1px dotted #f0f0f0; border-bottom: 1px dotted #f0f0f0 }
+.cal_days td.last { border-right: none !important; }
+.cal_dow th { height: 20px; text-align: center; font-weight: normal; }
+.cal_day { cursor: pointer; }
+.cal_dayoff { color: silver !important; border: none !important; }
+.cal_days td.cal_first { border-right: 1px dotted #f0f0f0 !important; }
+.cal_days td.cal_top { border-bottom: 1px dotted #f0f0f0 !important; }
+.cal_days td.cal_bottom { border-bottom: none !important; }
+.cal_thisday { font-weight: bold; background-color: #999999; color: White !important; cursor: pointer; } /*#d0d0d0*/
+.cal_dayover { background-color: #e0e0e0 !important; }
+.cal_today { border: 1px solid red !important; cursor: pointer; }
+.cal_dow_week { background-color: #f0f0f0; }
+.cal_dow_weekend { background-color: #d0d0d0; }
+.cal_week { background-color: #f0f0f0; font-size: 7pt !important; color: #818181 !important; border: none !important; }
+.cal_nav { background-color: #d0d0d0; }
+.cal_nav td, .cal_nav div { display: block; cursor: pointer; font-size: 8pt; font-weight: bold; padding-bottom: 2px; width: auto !important }
+.cal_nav th:hover, .cal_navover { background-color: #bcbaba; }
+.cal_nav td, .cal_dow td { border: none; }

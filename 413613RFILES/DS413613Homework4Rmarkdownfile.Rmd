@@ -1,0 +1,12 @@
+---
+title: "Homework4Rmarkdownfile"
+author: "James Dickens"
+date: "2/24/2021"
+output: word_document
+---
+
+```{r}
+library(tidyverse)
+mpg
+
+```

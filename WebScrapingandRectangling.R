@@ -119,7 +119,7 @@ Movieratings
 
 # Let's organize our collected data onto a data frame.
 
-moviesdataframe = data.frame(Movienames,years,Movieratings)
+moviesdataframe = data.frame(Movienames,years, Movieratings)
 moviesdataframe
 
 # Now let's improve the format and appearance of the data table by transforming
@@ -127,10 +127,21 @@ moviesdataframe
 
 is_tibble(moviesdataframe)
 
-
 as_tibble(moviesdataframe)
 
 
+as_tibble(moviesdataframe) -> f
+f
+
+f%>%
+  select(Movienames,years, Movieratings)%>%
+  mutate(years = parse_number(years))
+
+
+f%>%
+  select(Movienames,years, Movieratings)%>%
+  mutate(years = parse_number(years))%>%
+  mutate(Movieratings = as.double(Movieratings))
 
 # Washington DC
 
@@ -154,7 +165,7 @@ boxplot(y)
 
 Link <- "https://https://forecast.weather.gov/MapClick.php?CityName=Washington&state=DC&site=LWX&textField1=38.895&textField2=-77.0373&e=1#.YLPCyflKiUk"
 page = read_html(Link)
-Forcasts = page%>% html_nodes(".tombstone-container:nth-child(1) .short-desc")%>%
+Forcasts = page%>% html_nodes(".short-desc")%>%
   html_text()
 Forcasts
 
@@ -162,9 +173,25 @@ Forcasts
 Weather = data.frame(Temperatures, Forcasts)
 Weather
 
+
 # The data frame has a good structure/display. No need to change to
 # a tibble.
 
+# Let's add another column !!
+
+Link <- "https://https://forecast.weather.gov/MapClick.php?CityName=Washington&state=DC&site=LWX&textField1=38.895&textField2=-77.0373&e=1#.YLPCyflKiUk"
+page = read_html(Link)
+DayNight = page%>% html_nodes(".period-name")%>%
+  html_text()
+DayNight
+
+
+
+Weather = data.frame(DayNight, Temperatures, Forcasts)
+Weather
+
+
+as_tibble(Weather)
 
 
 Web Scraping  :  Using an API

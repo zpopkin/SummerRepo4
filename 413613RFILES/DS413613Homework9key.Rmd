@@ -1,0 +1,59 @@
+---
+title: "Homework9key"
+author: "James Dickens"
+date: "4/10/2021"
+output: word_document
+---
+
+```{r}
+
+
+library(tidycensus)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+census_api_key("2153faf1e1d25707ef71c8c464cb4c2c08be4e76")
+install = TRUE
+
+v15 <- load_variables(2015, "acs5", cache = TRUE)
+v15
+
+CA <- get_acs(geography = "county", 
+              variables = c(medincome = "B01001A_011"), 
+              state = "CA", 
+              year = 2015)
+CA
+
+
+CA%>%
+  filter(estimate > 30000)%>%
+  arrange(desc(estimate)) -> CA1
+CA1
+
+CA1%>%
+  filter(estimate == 51644 , moe == 667) -> CA2
+CA2
+
+
+
+CA1 %>%
+  mutate(NAME = gsub(" County, California", "", NAME)) %>%
+  ggplot(aes(x = estimate, y = reorder(NAME, estimate))) +
+  geom_errorbarh(aes(xmin = estimate - moe, xmax = estimate + moe)) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Median Income for White Males by County",
+       subtitle = "2014-2018 American Community Survey",
+       y = "",
+       x = "ACS estimate (bars represent margin of error)")
+CA1
+
+boxplot(CA1$estimate)
+
+ggplot(data = CA1) +
+  geom_boxplot(mapping = aes(y = estimate), fill = "red") +
+  coord_flip()
+
+
+
+
+```

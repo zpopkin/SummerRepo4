@@ -1,0 +1,60 @@
+
+library(tidyverse)
+library(dplyr)
+library(data.table)
+
+# 1.a) Use `fread()` and relative paths to load in the 
+# `data.table` from college_score.csv.
+
+collegedata <- fread("college_score.csv")
+collegedata
+
+#  b) Use and show data.table R coding to determine how
+#     to determine how many rows the college_score data
+#     has.
+collegedata[, .(.N)]
+
+#  c) Use read_csv and relative paths to load in the  
+# `data.table` from college_score.csv.
+collegedata1 <- read_csv("college_score.csv")
+collegedata1
+
+#  d) Use tidyverse coding to determine how many rows the
+#     college_score data has.
+collegedata1 %>%
+  count()
+
+#2 Use a data.table command to display the structure of
+#  the college_score data
+str(collegedata)
+
+#3. Use data.table to calculate the median for average
+# faculty salaries.
+collegedata[, .(AVEFALSAL = median(AVGFACSAL, na = T))]
+
+
+
+# 4  Use Tidyverse coding to change the levels of the variable
+# ICLEVEL. In particular change 1 to OneYear, 2 to TwoYear,
+# and 3 to ThreeYear. Select only variables INSTNM, SAT_AVG,
+# ADM_RATE, and ICLEVEL
+collegedata1%>%
+  select(INSTNM, SAT_AVG, ADM_RATE, ICLEVEL)%>%
+  mutate(ICLEVEL = recode(ICLEVEL,  "1" = "OneYear",
+        "2" = "TwoYear", "3" = "ThreeYear")) -> coldata
+coldata
+
+# 5 The data.table representation of your data produced
+# by the coding of #4 will show the first five rows and the
+# last five rows of the data set.  Use R coding to change
+# the output of #4 to data.table output.
+
+as.data.table(coldata)
+
+# 6 Now use a data.table method to output observational rows
+# of the original data set (550 - 555) inclusive.
+collegedata[c(550,551,552,553,554,555)]
+
+
+q()
+y

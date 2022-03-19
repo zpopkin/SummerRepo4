@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+     <title>  My first Web Page </title>
+  </head> 
+    <body>
+	  <em><h1> Heading4 </h1></em>
+	  <br>
+	  <img src = "sparty.png"/>
+	</body>
+
+</html>
