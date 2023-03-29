@@ -1,5 +1,6 @@
 
-# R Preiminaries
+# R Preiminaries and Fundamentals
+James Dickens
 
 # 1 Raise 12 to the second power
 12^2
