@@ -1,5 +1,5 @@
 
-# Review of Basic Statistics
+# Review of BASIC STATISTICS REVIEW
 
 library(tidyverse)
 #install.packages("Sleuth3")
